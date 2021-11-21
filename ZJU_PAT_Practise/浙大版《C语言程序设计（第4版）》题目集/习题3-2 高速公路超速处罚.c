@@ -30,21 +30,17 @@ Exceed 67%. License Revoked
 #include <stdio.h>
 int main(void)
 {
-	int speed,speedLimit;
+	int speed,speedLimit,x;
 	float t;
-	scanf("%d %d", &speed,&speedLimit);
-	if (speed > speedLimit){
-		t = (speed - speedLimit) * 1.0;
-		t = t * 100.0 / speedLimit;
-		if (t >= 10 && t < 50){
-			printf("Exceed ""%.f""%%. Ticket 200\n", t);
-		}else if ((t / speedLimit) >= 0.5){
-			printf("Exceed ""%.f""%%. License Revoked\n", t);
-		}else{
-			printf("OK\n");
-		}
+	scanf("%d %d",&speed,&speedLimit);
+	x = speed - speedLimit;
+	t = x * 100.0 / speedLimit;
+	if (t >= 10 && t < 50){
+		printf("Exceed %.f%%. Ticket 200\n", t);
+	}else if (t >= 50){
+		printf("Exceed %.f%%. License Revoked\n", t);
 	}else{
-			printf("OK\n");
+		printf("OK\n");
 	}
 	return 0;
 }
